@@ -64,7 +64,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
 
-    fetch('http://localhost:3001/imagekey', {
+    fetch('https://smart-brain-api-1t17.onrender.com/imagekey', {
                     method: 'post',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -75,7 +75,7 @@ class App extends Component {
       .then(response => {
               console.log(response);
               if(response){
-                fetch('http://localhost:3001/image', {
+                fetch('https://smart-brain-api-1t17.onrender.com/image', {
                     method: 'put',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -89,7 +89,7 @@ class App extends Component {
                   .catch(console.log) 
                   
               }    
-              this.displayFaceBox(this.calculateFaceLocation(response))
+              this.displayFaceBox(this.calculateFaceLocation(response));
               console.log(response)
             })
             .catch(error => console.log('error', error));
